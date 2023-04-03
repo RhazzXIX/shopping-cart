@@ -1,15 +1,21 @@
+import { element } from "prop-types";
 import React from "react";
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import Home from "./components/Home";
+import Product from "./components/Product";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
-    path: "/",
+    path: "shopping-cart",
     element: <App />,
+    children: [
+      {
+        path: "",
+        element: <Home />,
+      },
+    ],
   },
-  {
-    path: '/shop'
-  }
 ]);
 
 const RouteSwitch = <RouterProvider router={router} />;

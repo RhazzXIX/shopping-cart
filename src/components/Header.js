@@ -5,7 +5,7 @@ const Header = (props) => {
   const { itemsAmount } = props;
   return (
     <header id="nav">
-      <Link to={"/"}>
+      <Link to={""}>
         <button id="home">Home</button>
       </Link>
       <button id="shop">Shop</button>

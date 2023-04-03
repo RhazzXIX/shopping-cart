@@ -4,22 +4,6 @@ div#App {
   height: 100vh;
 }
 
-div#App main {
-  flex-grow: 1;
-  background: url("../images/shoppingBG.webp") no-repeat center;
-  background-size: cover;
-}
-
-div#App main h1 {
-  margin: 30px auto;
-  padding: 4px 8px;
-  border-radius: 12px;
-  text-align: center;
-  text-shadow: 0 0 4px black;
-  letter-spacing: 2px;
-  width: max-content;
-}
-
 div#App footer,
 div#App header {
   background-color: black;

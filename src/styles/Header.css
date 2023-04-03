@@ -1,0 +1,30 @@
+header#nav {
+  display: grid;
+  grid-template-columns: 1fr 66px 90px;
+  padding: 0 20px;
+  gap: 12px;
+  align-items: center;
+}
+
+header#nav button {
+  background: none;
+  color: white;
+  border: 0;
+  max-width: max-content;
+  padding: 4px 8px;
+  font-size: 1.3rem;
+  font-family: "Times New Roman", Times, serif;
+  cursor: pointer;
+  border-radius: 8px;
+  height: 40px;
+}
+
+header#nav button:hover {
+  text-shadow: 0 0 8px white;
+  box-shadow: 0 0 8px white;
+}
+
+header#nav button:active {
+  color: black;
+  background: white;
+}

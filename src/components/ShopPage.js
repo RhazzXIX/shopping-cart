@@ -1,6 +1,7 @@
 import uniqid from "uniqid";
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
+import "../styles/ShopPage.css";
 
 const modifyCategoryNames = (string) => {
   return string

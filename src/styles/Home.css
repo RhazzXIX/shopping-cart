@@ -2,6 +2,7 @@ main#home {
   flex-grow: 1;
   background: url("../images/shoppingBG.webp") no-repeat center;
   background-size: cover;
+  min-height: 818px;
 }
 
 main#home h1 {

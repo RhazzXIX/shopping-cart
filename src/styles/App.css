@@ -4,10 +4,10 @@ div#App {
   height: 100vh;
 }
 
-div#App footer,
-div#App header {
+div#App > footer,
+div#App > header {
   background-color: black;
-  height: 60px;
+  min-height: 60px;
 }
 
 div#App footer {

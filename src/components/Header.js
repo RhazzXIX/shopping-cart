@@ -8,7 +8,9 @@ const Header = (props) => {
       <Link to={""}>
         <button id="home">Home</button>
       </Link>
-      <button id="shop">Shop</button>
+      <Link to={"shop"}>
+        <button id="shop">Shop</button>
+      </Link>
       <button id="cart">Cart {itemsAmount !== 0 ? itemsAmount : null}</button>
     </header>
   );

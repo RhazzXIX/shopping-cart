@@ -51,6 +51,12 @@ section#items > header {
 }
 
 div.productContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px;
   max-height: 756px;
   overflow: auto;
 }

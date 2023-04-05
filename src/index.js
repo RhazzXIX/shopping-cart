@@ -5,7 +5,6 @@ import App from './App';
 import RouteSwitch from './RouteSwitch';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-console.log(RouteSwitch.props.router)
 root.render(
   <React.StrictMode>
     {RouteSwitch}

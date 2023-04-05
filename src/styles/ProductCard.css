@@ -1,0 +1,40 @@
+div.card {
+  border: 1px solid black;
+  padding: 12px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-rows: 2fr 1fr auto auto;
+  align-items: center;
+  justify-items: center;
+  width: 260px;
+  height: 360px;
+  gap: 8px;
+}
+
+div.card:hover {
+  box-shadow: 0 0 8px black;
+}
+
+div.card > img {
+  justify-self: center;
+  align-self: center;
+  border-radius: 8px;
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+div.card > h4 {
+  font-size: 1rem;
+}
+
+div.card > p:first-of-type {
+  font-size: 1.2rem;
+}
+
+div.card > button {
+  width: 200px;
+  align-self: center;
+  justify-self: center;
+}

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<div>
+  <div
+    id="App"
+  >
+    <header
+      id="nav"
+    >
+      <button>
+        Home
+      </button>
+      <button>
+        Shop
+      </button>
+      <button
+        id="cart"
+      >
+        Cart 
+      </button>
+    </header>
+    <main>
+      <h1>
+        Hoarder Digital
+      </h1>
+    </main>
+    <footer>
+      <a
+        href="https://github.com/RhazzXIX"
+      >
+        <img
+          alt="GitHub Profile"
+          id="gitHub"
+          src="github.png"
+        />
+      </a>
+    </footer>
+  </div>
+</div>
+`;

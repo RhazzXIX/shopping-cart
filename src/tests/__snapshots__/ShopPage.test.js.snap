@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShopPage component renders the component 1`] = `
+<div>
+  <main
+    id="shop"
+  >
+    <section
+      id="sidebar"
+    >
+      <h3>
+        Categories
+      </h3>
+      <ul>
+        <li>
+          <button>
+            All Items
+          </button>
+        </li>
+      </ul>
+    </section>
+    <section
+      id="items"
+    >
+      <header>
+        <h2>
+          All Items
+        </h2>
+      </header>
+      <div
+        class="productContainer"
+      />
+    </section>
+  </main>
+</div>
+`;

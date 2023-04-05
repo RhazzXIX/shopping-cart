@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product cards Renders the card of the product 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="Black Motorbike"
+      src="https://i.dummyjson.com/data/products/91/1.jpg"
+    />
+    <h4>
+      Black Motorbike
+    </h4>
+    <p>
+      $ 
+      569
+      .00
+    </p>
+    <button
+      class="viewDetails"
+    >
+      View Details
+    </button>
+  </div>
+</div>
+`;

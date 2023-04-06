@@ -54,11 +54,12 @@ const ShopPage = () => {
 
   useEffect(() => {
     getCategories();
+    getProducts();
   }, []);
 
   useEffect(() => {
     getProducts();
-  }, [categoryNeeded, products]);
+  }, [categoryNeeded, showAllItems]);
 
   return (
     <main id="shop">

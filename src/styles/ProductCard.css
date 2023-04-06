@@ -1,13 +1,15 @@
 div.card {
+  width: 100%;
+  max-width: 1000px;
   border: 1px solid black;
   padding: 12px;
   border-radius: 8px;
   display: grid;
-  grid-template-rows: 2fr 1fr auto auto;
+  grid-template-columns: minmax(200px, 1fr) 2fr 2fr;
+  grid-template-rows: auto 1fr auto auto;
   align-items: center;
   justify-items: center;
-  width: 260px;
-  height: 360px;
+  min-height: 230px;
   gap: 8px;
 }
 
@@ -16,6 +18,7 @@ div.card:hover {
 }
 
 div.card > img {
+  grid-area: 1 / 1 / -1 / 2;
   justify-self: center;
   align-self: center;
   border-radius: 8px;
@@ -23,18 +26,61 @@ div.card > img {
   height: auto;
   max-width: 200px;
   max-height: 200px;
+  /* margin: 0 16px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.card > h4 {
+  grid-area: 1 / 2 / 2 / 3;
   font-size: 1rem;
 }
 
+div.card p:nth-of-type(1n + 2) {
+  font-size: 1.3rem;
+}
+
 div.card > p:first-of-type {
-  font-size: 1.2rem;
+  grid-area: 2 / 2 / 3 / -1;
+  font-size: 1rem;
+  max-width: 500px;
 }
 
 div.card > button {
+  grid-column: 2 / -1;
   width: 200px;
   align-self: center;
   justify-self: center;
+}
+
+div.qtyContainer {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  gap: 4px;
+}
+
+div.qtyContainer label {
+  display: flex;
+  gap: 6px;
+  grid-column: 1 / -1;
+}
+
+div.qtyContainer label input {
+  width: 60px;
+}
+
+div.qtyContainer button {
+  grid-row: 2 / -1;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.qtyContainer button:last-of-type {
+  justify-self: end;
+  grid-column: 2 / -1;
 }

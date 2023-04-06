@@ -94,9 +94,8 @@ button#cart img {
 
 div.productContainer {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   padding: 4px;
   overflow: auto;

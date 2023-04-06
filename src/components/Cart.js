@@ -1,5 +1,6 @@
 import { useState } from "react";
 import del from "../images/del.svg";
+import "../styles/Cart.css";
 
 const Cart = (props) => {
   const { products, deleteProduct } = props;
@@ -15,8 +16,8 @@ const Cart = (props) => {
         {products.map((product) => {
           return (
             <li key={product.id}>
+              <h4>{product.title}</h4>
               <img src={product.images[0]} alt={product.title} />
-              <h6>{product.title}</h6>
               <p>
                 $ {product.price}.00 x {product.qty}
               </p>

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart component Gets rendered 1`] = `
+<div>
+  <section
+    id="cart-page"
+  >
+    <header>
+      <h5>
+        Items:
+      </h5>
+      <h5>
+        Costs:
+      </h5>
+    </header>
+    <ul>
+      <li>
+        <img
+          alt="Black Motorbike"
+          src="https://i.dummyjson.com/data/products/91/1.jpg"
+        />
+        <h6>
+          Black Motorbike
+        </h6>
+        <p>
+          $ 
+          569
+          .00 x 
+          2
+        </p>
+        <p>
+          $ 
+          1138
+          .00
+        </p>
+        <button>
+          <img
+            alt="delete"
+            src="del.svg"
+          />
+        </button>
+      </li>
+    </ul>
+    <footer>
+      <h4>
+        Total Cost: $ 
+        0
+        .00
+      </h4>
+    </footer>
+  </section>
+</div>
+`;

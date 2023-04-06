@@ -2,6 +2,7 @@ import uniqid from "uniqid";
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import "../styles/ShopPage.css";
+import cartImg from "../images/cart.svg";
 
 const modifyCategoryNames = (string) => {
   return string
@@ -17,6 +18,7 @@ const ShopPage = () => {
   const [showAllItems, setShowAllItems] = useState(true);
   const [products, setProducts] = useState([]);
   const [categoryNeeded, setCategoryNeeded] = useState("");
+  const [cartItems, setCartItems] = useState([]);
 
   const getAllItems = (e) => {
     setShowAllItems(true);
@@ -79,12 +81,20 @@ const ShopPage = () => {
             );
           })}
         </ul>
+        <div id="e-com">
+          <p>E-commerce data is powered by:</p>
+          <a href="https://dummyjson.com/">DummyJSON </a>
+        </div>
       </section>
       <section id="items">
         <header>
           <h2>
             {showAllItems ? "All Items" : modifyCategoryNames(categoryNeeded)}
           </h2>
+          <button id="cart">
+            <img src={cartImg} alt="Cart" />
+            {cartItems.length !== 0 && <p>{cartItems.length}</p>}
+          </button>
         </header>
         <div className="productContainer">
           {products.map((product) => (

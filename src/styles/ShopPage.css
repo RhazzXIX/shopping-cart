@@ -6,14 +6,14 @@ main#shop {
 
 section#sidebar {
   padding: 10px 20px;
-  /* border-right: 2px solid black; */
   box-shadow: 2px 0 8px black;
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(230, 230, 230);
   min-width: 210px;
+  display: grid;
+  grid-template-rows: 40px auto auto;
 }
 
 section#sidebar > ul {
-  margin-top: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +26,7 @@ section#sidebar > ul button {
   font-size: 1.1rem;
   letter-spacing: 1px;
   cursor: pointer;
+  background-color: rgb(230, 230, 230);
 }
 
 section#sidebar > ul button:hover {
@@ -36,18 +37,59 @@ section#sidebar > ul button:active {
   color: grey;
 }
 
+div#e-com {
+  align-self: end;
+  width: 148px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 4px 8px;
+}
+
+div#e-com:hover {
+  background-color: white;
+}
+
 section#items {
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   flex: auto;
+  max-height: 821px;
 }
 
 section#items > header {
   border-bottom: 2px solid black;
   box-shadow: 0 8px 8px -8px black;
-  padding-left: 6px;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button#cart {
+  width: 70px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white;
+}
+
+button#cart:hover {
+  box-shadow: 0 0 4px black;
+}
+
+button#cart:active {
+  filter: invert(100);
+}
+
+button#cart img {
+  height: 30px;
+  width: 30px;
 }
 
 div.productContainer {
@@ -57,6 +99,6 @@ div.productContainer {
   justify-content: center;
   gap: 8px;
   padding: 4px;
-  max-height: 756px;
   overflow: auto;
+  flex: auto;
 }

@@ -26,6 +26,14 @@ exports[`ShopPage component renders the component 1`] = `
         <h2>
           All Items
         </h2>
+        <button
+          id="cart"
+        >
+          <img
+            alt="Cart"
+            src="cart.svg"
+          />
+        </button>
       </header>
       <div
         class="productContainer"

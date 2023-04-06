@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "../styles/Header.css";
 
 const Header = (props) => {
-  const { itemsAmount } = props;
   return (
     <header id="nav">
       <Link to={""}>
@@ -11,7 +10,9 @@ const Header = (props) => {
       <Link to={"shop"}>
         <button id="shop">Shop</button>
       </Link>
-      <button id="cart">Cart {itemsAmount !== 0 ? itemsAmount : null}</button>
+      <Link to={"credits"}>
+        <button id="cart">Credits</button>
+      </Link>
     </header>
   );
 };

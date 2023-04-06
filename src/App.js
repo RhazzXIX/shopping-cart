@@ -1,14 +1,13 @@
 import "./styles/App.css";
-import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import gitHub from "./images/github.png";
 import { Outlet } from "react-router";
 
+
 function App() {
-  const [cartItems, setCartItems] = useState([]);
   return (
     <div id="App">
-      <Header itemsAmount={cartItems.length} />
+      <Header />
       <Outlet />
       <footer>
         <a href="https://github.com/RhazzXIX">

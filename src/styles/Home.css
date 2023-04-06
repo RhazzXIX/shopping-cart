@@ -3,14 +3,32 @@ main#home {
   background: url("../images/shoppingBG.webp") no-repeat center;
   background-size: cover;
   min-height: 818px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 main#home h1 {
   margin: 30px auto;
   padding: 4px 8px;
   border-radius: 12px;
-  text-align: center;
   text-shadow: 0 0 4px black;
   letter-spacing: 2px;
   width: max-content;
+}
+
+main#home 
+p {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: max-content;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+main#home 
+p:hover {
+  background-color: white;
+  box-shadow: 0 0 4px black;
 }

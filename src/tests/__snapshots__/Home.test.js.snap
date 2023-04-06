@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders learn react link 1`] = `
+exports[`renders the home component 1`] = `
 <div>
   <main
     id="home"
@@ -8,6 +8,14 @@ exports[`renders learn react link 1`] = `
     <h1>
       Hoarder Digital
     </h1>
+    <p>
+      Photo by: 
+      <a
+        href="https://www.pexels.com/@n-voitkevich/"
+      >
+        Nataliya Vaitkevich
+      </a>
+    </p>
   </main>
 </div>
 `;

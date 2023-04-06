@@ -23,7 +23,12 @@ const ProductCard = (props) => {
 
   const addItems = () => {
     if (quantity === 0) return;
-    addItem(product.id, quantity);
+    const productToCart = {
+      ...product,
+      qty: quantity,
+    };
+
+    addItem(productToCart);
   };
   return (
     <div className="card">

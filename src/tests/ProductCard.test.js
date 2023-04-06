@@ -14,6 +14,8 @@ const product = {
 };
 
 
+const productToBeSent = {...product, qty:2}
+
 const addItemToCart = jest.fn()
 
 const user = userEvent.setup()
@@ -73,9 +75,10 @@ describe("ProductCard component", () => {
         name: '+',
       })
       await user.click(incrementBtn)
+      await user.click(incrementBtn)
       await user.click(addCartBtn)
       expect(addItemToCart).toHaveBeenCalled()
-      expect(addItemToCart).toHaveBeenCalledWith('214', 1)
+      expect(addItemToCart.mock.calls[0][0]).toEqual(productToBeSent)
     })
   })
 });

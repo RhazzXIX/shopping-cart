@@ -12,9 +12,8 @@ describe("Page Header", () => {
       </BrowserRouter>
     );
     const buttons = screen.getAllByRole("button");
-    expect(buttons).toHaveLength(3);
+    expect(buttons).toHaveLength(2);
     expect(buttons[0].textContent).toMatch(/home/i);
     expect(buttons[1].textContent).toMatch(/shop/i);
-    expect(buttons[2].textContent).toMatch(/credits/i);
   });
 });

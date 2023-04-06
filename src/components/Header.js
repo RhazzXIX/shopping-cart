@@ -10,9 +10,6 @@ const Header = (props) => {
       <Link to={"shop"}>
         <button id="shop">Shop</button>
       </Link>
-      <Link to={"credits"}>
-        <button id="cart">Credits</button>
-      </Link>
     </header>
   );
 };

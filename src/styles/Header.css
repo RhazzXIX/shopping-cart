@@ -1,9 +1,10 @@
 header#nav {
   display: grid;
-  grid-template-columns: 1fr 66px 90px;
+  grid-template-columns: repeat(2, 1fr);
   padding: 0 20px;
   gap: 12px;
   align-items: center;
+  justify-items: center;
 }
 
 header#nav button {

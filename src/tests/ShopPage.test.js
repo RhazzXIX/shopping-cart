@@ -120,5 +120,28 @@ describe("ShopPage component", () => {
       // expect(sneakerShoes).toBeInTheDocument();
       // expect(productDetailButtons).toHaveLength(100);
     });
+
+    it(`Let's users see what in the cart`, async () => {
+      render(<ShopPage />);
+      const cartBtn = screen.getByRole("button", { name: "Cart" });
+
+      expect(
+        screen.queryByRole("heading", { name: "Cart" })
+      ).not.toBeInTheDocument();
+
+      await user.click(cartBtn);
+
+      expect(screen.getByRole("heading", { name: "Cart" })).toBeInTheDocument();
+    });
+
+    it(`Let's the user close the cart by clicking anywhere on the Shop page`, async () => {
+      render(<ShopPage />);
+      const cartBtn = screen.getByRole("button", { name: "Cart" });
+      const shopPage = screen.getByRole("main");
+      await user.click(cartBtn);
+      expect(screen.getByRole("heading", { name: "Cart" })).toBeInTheDocument();
+      await user.click(shopPage)
+      expect(screen.queryByRole("heading", { name: "Cart" })).not.toBeInTheDocument();
+    });
   });
 });

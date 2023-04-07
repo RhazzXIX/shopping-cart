@@ -18,6 +18,18 @@ exports[`ShopPage component renders the component 1`] = `
           </button>
         </li>
       </ul>
+      <div
+        id="e-com"
+      >
+        <p>
+          E-commerce data is powered by:
+        </p>
+        <a
+          href="https://dummyjson.com/"
+        >
+          DummyJSON 
+        </a>
+      </div>
     </section>
     <section
       id="items"
@@ -27,6 +39,7 @@ exports[`ShopPage component renders the component 1`] = `
           All Items
         </h2>
         <button
+          aria-label="Cart"
           id="cart"
         >
           <img

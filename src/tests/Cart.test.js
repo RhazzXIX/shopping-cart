@@ -21,6 +21,16 @@ const product = {
     "Engine Type:Wet sump, Single Cylinder, Four Stroke, Two Valves, Air Cooled with SOHC (Single Over Head Cam) Chain Drive Bore & Stroke:47.0 x 49.5 MM",
 };
 
+const product2 = {
+  title: "iPhone X",
+  id: "456",
+  price: 899,
+  images: ["https://i.dummyjson.com/data/products/2/1.jpg"],
+  qty: 1,
+  description:
+    "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip",
+};
+
 describe("Cart component", () => {
   beforeEach(() => products.push(product));
   it("Gets rendered", () => {
@@ -40,5 +50,20 @@ describe("Cart component", () => {
     rerender(<Cart products={products} deleteProduct={delProd} />);
     expect(screen.queryByRole("listitem")).not.toBeInTheDocument();
   });
-  afterEach(() => products.pop());
+
+  it("Shows the total cost of all the products", () => {
+    const { rerender } = render(
+      <Cart products={products} deleteProduct={delProd} />
+    );
+    expect(
+      screen.queryByRole("heading", { name: /total/i }).textContent
+    ).toMatch("Total Cost: $ 1138.00");
+
+    const addedProducts = [...products, product2];
+    rerender(<Cart products={addedProducts} deleteProduct={delProd} />);
+    expect(
+      screen.queryByRole("heading", { name: /total/i }).textContent
+    ).toMatch("Total Cost: $ 2037.00");
+  });
+  afterEach(() => products.splice(0));
 });

@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import del from "../images/del.svg";
 import "../styles/Cart.css";
 
 const Cart = (props) => {
   const { products, deleteProduct } = props;
   const [totalCost, setTotalCost] = useState(0);
+  const getTotalCost = () => {
+    let addedCost = 0;
+    products.forEach((product) => {
+      const productCost = product.price * product.qty;
+      addedCost += productCost;
+    });
+    setTotalCost(addedCost);
+  };
+
+  useEffect(() => {
+    getTotalCost();
+  }, [products]);
 
   return (
     <section id="cart-page">

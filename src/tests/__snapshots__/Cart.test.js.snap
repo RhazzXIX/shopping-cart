@@ -15,13 +15,13 @@ exports[`Cart component Gets rendered 1`] = `
     </header>
     <ul>
       <li>
+        <h4>
+          Black Motorbike
+        </h4>
         <img
           alt="Black Motorbike"
           src="https://i.dummyjson.com/data/products/91/1.jpg"
         />
-        <h6>
-          Black Motorbike
-        </h6>
         <p>
           $ 
           569
@@ -44,7 +44,7 @@ exports[`Cart component Gets rendered 1`] = `
     <footer>
       <h4>
         Total Cost: $ 
-        0
+        1138
         .00
       </h4>
     </footer>

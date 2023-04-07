@@ -21,6 +21,7 @@ const Cart = (props) => {
   return (
     <section id="cart-page">
       <header>
+        <h4>Cart</h4>
         <h5>Items:</h5>
         <h5>Costs:</h5>
       </header>

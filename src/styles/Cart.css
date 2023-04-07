@@ -7,12 +7,22 @@ section#cart-page {
   padding: 18px;
   box-shadow: 0 0 4px black;
   border-radius: 8px;
+  min-height: 220px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 section#cart-page header {
   display: grid;
+  grid-template-rows: repeat(2 auto);
   grid-template-columns: 1fr 1fr;
   margin-bottom: 12px;
+  row-gap: 6px;
+}
+
+section#cart-page header
+h5 {
+ grid-row: 2 / 3;
 }
 
 section#cart-page header h5:last-child {

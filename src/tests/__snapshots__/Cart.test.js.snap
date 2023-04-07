@@ -6,6 +6,9 @@ exports[`Cart component Gets rendered 1`] = `
     id="cart-page"
   >
     <header>
+      <h4>
+        Cart
+      </h4>
       <h5>
         Items:
       </h5>

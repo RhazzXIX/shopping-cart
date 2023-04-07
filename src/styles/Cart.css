@@ -20,9 +20,8 @@ section#cart-page header {
   row-gap: 6px;
 }
 
-section#cart-page header
-h5 {
- grid-row: 2 / 3;
+section#cart-page header h5 {
+  grid-row: 2 / 3;
 }
 
 section#cart-page header h5:last-child {
@@ -37,6 +36,12 @@ section#cart-page ul li {
   border-radius: 12px;
   margin-bottom: 8px;
   padding: 8px;
+}
+
+section#cart-page > p {
+  margin: 18px;
+  margin-top: 26px;
+  font-size: 1.2rem;
 }
 
 section#cart-page ul li:hover {

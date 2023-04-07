@@ -34,9 +34,22 @@ const product2 = {
 describe("Cart component", () => {
   beforeEach(() => products.push(product));
   it("Gets rendered", () => {
-    const { container } = render(<Cart products={products} />);
+    const { container } = render(<Cart products={[]} />);
 
     expect(container).toMatchSnapshot();
+  });
+
+  it(`Shows items, added to the cart`, () => {
+    const { rerender } = render(<Cart products={[]} deleteProduct={delProd} />);
+    expect(screen.getByText("No items on the cart")).toBeInTheDocument();
+    expect(screen.queryByRole("list")).not.toBeInTheDocument();
+    rerender(<Cart products={products} deleteProduct={delProd} />);
+    expect(screen.queryByText("No items on the cart")).not.toBeInTheDocument();
+    expect(screen.getByRole("list")).toBeInTheDocument();
+    expect(screen.getByRole("listitem")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Black Motorbike" })
+    ).toBeInTheDocument();
   });
 
   it("Can delete products", async () => {
@@ -65,5 +78,6 @@ describe("Cart component", () => {
       screen.queryByRole("heading", { name: /total/i }).textContent
     ).toMatch("Total Cost: $ 2037.00");
   });
+
   afterEach(() => products.splice(0));
 });

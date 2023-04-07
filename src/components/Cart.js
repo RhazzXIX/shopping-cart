@@ -25,23 +25,27 @@ const Cart = (props) => {
         <h5>Items:</h5>
         <h5>Costs:</h5>
       </header>
-      <ul>
-        {products.map((product) => {
-          return (
-            <li key={product.id}>
-              <h4>{product.title}</h4>
-              <img src={product.images[0]} alt={product.title} />
-              <p>
-                $ {product.price}.00 x {product.qty}
-              </p>
-              <p>$ {product.price * product.qty}.00</p>
-              <button onClick={deleteProduct}>
-                <img src={del} alt="delete" />
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      {products.length !== 0 ? (
+        <ul>
+          {products.map((product) => {
+            return (
+              <li key={product.id}>
+                <h4>{product.title}</h4>
+                <img src={product.images[0]} alt={product.title} />
+                <p>
+                  $ {product.price}.00 x {product.qty}
+                </p>
+                <p>$ {product.price * product.qty}.00</p>
+                <button onClick={deleteProduct}>
+                  <img src={del} alt="delete" />
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p>No items on the cart</p>
+      )}
       <footer>
         <h4>Total Cost: $ {totalCost}.00</h4>
       </footer>

@@ -16,30 +16,11 @@ const modifyCategoryNames = (string) => {
 
 const ShopPage = () => {
   const [categories, setCategories] = useState([]);
-  const [showAllItems, setShowAllItems] = useState(true);
+  const [showAllItems, setShowAllItems] = useState(false);
   const [products, setProducts] = useState([]);
-  const [categoryNeeded, setCategoryNeeded] = useState("");
-  const [showCart, setShowCart] = useState(false)
-  const [cartItems, setCartItems] = useState([
-    // {
-    //   title: "Black Motorbike",
-    //   id: "214",
-    //   price: 569,
-    //   images: ["https://i.dummyjson.com/data/products/91/1.jpg"],
-    //   qty: 2,
-    //   description:
-    //     "Engine Type:Wet sump, Single Cylinder, Four Stroke, Two Valves, Air Cooled with SOHC (Single Over Head Cam) Chain Drive Bore & Stroke:47.0 x 49.5 MM",
-    // },
-    // {
-    //   title: "Black Motorbike",
-    //   id: "21321",
-    //   price: 569,
-    //   images: ["https://i.dummyjson.com/data/products/91/1.jpg"],
-    //   qty: 2,
-    //   description:
-    //     "Engine Type:Wet sump, Single Cylinder, Four Stroke, Two Valves, Air Cooled with SOHC (Single Over Head Cam) Chain Drive Bore & Stroke:47.0 x 49.5 MM",
-    // },
-  ]);
+  const [categoryNeeded, setCategoryNeeded] = useState("smartphones");
+  const [showCart, setShowCart] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   const getAllItems = (e) => {
     setShowAllItems(true);
@@ -76,43 +57,46 @@ const ShopPage = () => {
   };
 
   const toggleCart = (e) => {
-    if (showCart) setShowCart(false)
-    setShowCart(true)
-  }
+    if (showCart) setShowCart(false);
+    setShowCart(true);
+  };
 
   const closeCart = (e) => {
-    const cart = document.querySelector('section#cart-page')
-    if (!cart) return
-    if (e.target === cart) return
-    if (e.target.parentNode === cart) return
-    if (e.target.parentNode.parentNode === cart) return
-    if (e.target.parentNode.parentNode.parentNode === cart) return
-    if (e.target.parentNode.parentNode.parentNode.parentNode === cart) return
-    setShowCart(false)
-  }
+    const cart = document.querySelector("section#cart-page");
+    if (!cart) return;
+    if (e.target === cart) return;
+    if (e.target.parentNode === cart) return;
+    if (e.target.parentNode.parentNode === cart) return;
+    if (e.target.parentNode.parentNode.parentNode === cart) return;
+    if (e.target.parentNode.parentNode.parentNode.parentNode === cart) return;
+    setShowCart(false);
+  };
 
   const addToCart = (product) => {
-    const alreadyInCart = cartItems.filter(item => item.id === product.id)
-    if (alreadyInCart.length) {setCartItems(cartItems.map(item => {
-        if (item.id !== product.id) {
-          return item
-        } else {
-          return {...item, qty: item.qty + product.qty}
-        }
-      }))
-      return
+    const [alreadyInCart] = cartItems.filter((item) => item.id === product.id);
+    if (alreadyInCart) {
+      // setCartItems(
+      //   cartItems.map((item) => {
+      //     if (item.id !== product.id) {
+      //       return item;
+      //     } else {
+      //       return { ...item, qty: item.qty + product.qty };
+      //     }
+      //   })
+      // );
+      return;
     }
-    setCartItems(cartItems.concat(product))
-  }
+    setCartItems(cartItems.concat(product));
+  };
 
   const removeFromCart = (e) => {
-    const productId = Number(e.target.dataset.id)
+    const productId = Number(e.target.dataset.id);
     setCartItems(
-      cartItems.filter(item => {
-        return item.id !== productId
+      cartItems.filter((item) => {
+        return item.id !== productId;
       })
-    )
-  }
+    );
+  };
 
   useEffect(() => {
     getCategories();
@@ -155,11 +139,17 @@ const ShopPage = () => {
             <img src={cartImg} alt="Cart" />
             {cartItems.length !== 0 && <p>{cartItems.length}</p>}
           </button>
-          {showCart && <Cart products={cartItems} deleteProduct={removeFromCart}/>}
+          {showCart && (
+            <Cart products={cartItems} deleteProduct={removeFromCart} />
+          )}
         </header>
         <div className="productContainer">
           {products.map((product) => (
-            <ProductCard product={product} key={product.id} addItem={addToCart}/>
+            <ProductCard
+              product={product}
+              key={product.id}
+              addItem={addToCart}
+            />
           ))}
         </div>
       </section>

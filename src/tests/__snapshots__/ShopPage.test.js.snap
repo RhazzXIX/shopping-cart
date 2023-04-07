@@ -36,7 +36,7 @@ exports[`ShopPage component renders the component 1`] = `
     >
       <header>
         <h2>
-          All Items
+          Smartphones
         </h2>
         <button
           aria-label="Cart"

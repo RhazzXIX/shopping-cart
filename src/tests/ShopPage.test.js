@@ -28,97 +28,85 @@ describe("ShopPage component", () => {
     it("renders the fetched products", async () => {
       render(<ShopPage />);
       const productDetailButtons = await screen.findAllByRole("button", {
-        name: "View Details",
+        name: "Add to Cart",
       });
-      expect(productDetailButtons).toHaveLength(100);
+      expect(productDetailButtons).toHaveLength(5);
     });
 
     it("renders the right product section when the user click in a category", async () => {
       render(<ShopPage />);
       const productSection = screen.getByRole("heading", {
-        name: "All Items",
+        name: "Smartphones",
       });
-      expect(productSection.textContent).toMatch("All Items");
-      const button = await screen.findByRole("button", { name: "Smartphones" });
-      expect(button).toBeInTheDocument();
+      const button = screen.getByRole("button", { name: "All Items" });
       await user.click(button);
-      expect(productSection.textContent).toMatch("Smartphones");
+      expect(productSection.textContent).toMatch("All Items");
     });
+
     it(`let's the user shuffle between categories`, async () => {
       render(<ShopPage />);
-      const allItemsBtn = screen.getByRole("button", { name: "All Items" });
       const smartphoneBTN = await screen.findByRole("button", {
         name: "Smartphones",
       });
       const womenShoesBtn = await screen.findByRole("button", {
         name: "Womens shoes",
       });
-      let treeOIl = await screen.findByRole("heading", {
-        name: "Tree Oil 30ml",
-        level: 4,
-      });
-      let keyHolder = await screen.findByRole("heading", {
-        name: "Key Holder",
-        level: 4,
-      });
-      let sneakerShoes = await screen.findByRole("heading", {
-        name: "Sneaker shoes",
+      let iPhone9 = await screen.findByRole("heading", {
+        name: "iPhone 9",
         level: 4,
       });
       let productDetailButtons = await screen.findAllByRole("button", {
-        name: "View Details",
+        name: "Add to Cart",
       });
-      expect(productDetailButtons).toHaveLength(100);
-      expect(treeOIl).toBeInTheDocument();
-      expect(keyHolder).toBeInTheDocument();
-      expect(sneakerShoes).toBeInTheDocument();
-      await user.click(smartphoneBTN);
+      expect(productDetailButtons).toHaveLength(5);
+      expect(iPhone9).toBeInTheDocument();
+      expect(
+        screen.queryByRole("heading", {
+          name: "Sneaker shoes",
+          level: 4,
+        })
+      ).not.toBeInTheDocument();
+
+      await user.click(womenShoesBtn);
+
       await waitForElementToBeRemoved(
-        screen.queryByRole("heading", { name: "Tree Oil 30ml", level: 4 })
+        screen.queryByRole("heading", {
+          name: "iPhone 9",
+          level: 4,
+        })
       ).then(async () => {
         productDetailButtons = await screen.findAllByRole("button", {
-          name: "View Details",
+          name: "Add to Cart",
         });
-        expect(treeOIl).not.toBeInTheDocument();
-        expect(keyHolder).not.toBeInTheDocument();
-        expect(sneakerShoes).not.toBeInTheDocument();
+        expect(iPhone9).not.toBeInTheDocument();
         expect(productDetailButtons).toHaveLength(5);
+        expect(
+          screen.getByRole("heading", {
+            name: "Sneaker shoes",
+            level: 4,
+          })
+        ).toBeInTheDocument();
       });
-      await user.click(womenShoesBtn);
-      sneakerShoes = await screen.findByRole("heading", {
-        name: "Sneaker shoes",
-        level: 4,
-      });
-      keyHolder = screen.queryByRole("heading", {
-        name: "Key Holder",
-        level: 4,
-      });
-      treeOIl = screen.queryByRole("heading", {
-        name: "Tree Oil 30ml",
-        level: 4,
-      });
-      expect(sneakerShoes).toBeInTheDocument();
-      expect(treeOIl).not.toBeInTheDocument();
-      expect(keyHolder).not.toBeInTheDocument();
 
-      // ### test reduced due to timeout limit
+      await user.click(smartphoneBTN);
 
-      // await user.click(allItemsBtn);
-      // keyHolder = await screen.findByRole("heading", {
-      //   name: "Key Holder",
-      //   level: 4,
-      // });
-      // treeOIl = await screen.findByRole("heading", {
-      //   name: "Tree Oil 30ml",
-      //   level: 4,
-      // });
-      // productDetailButtons = await screen.findAllByRole("button", {
-      //   name: "View Details",
-      // });
-      // expect(keyHolder).toBeInTheDocument();
-      // expect(treeOIl).toBeInTheDocument();
-      // expect(sneakerShoes).toBeInTheDocument();
-      // expect(productDetailButtons).toHaveLength(100);
+      await waitForElementToBeRemoved(
+        screen.queryByRole("heading", {
+          name: "Sneaker shoes",
+          level: 4,
+        })
+      ).then(async () => {
+        productDetailButtons = await screen.findAllByRole("button", {
+          name: "Add to Cart",
+        });
+        expect(productDetailButtons).toHaveLength(5);
+        expect(
+          screen.getByRole("heading", {
+            name: "iPhone 9",
+            level: 4,
+          })
+        ).toBeInTheDocument();
+      });
     });
 
     it(`Let's users see what in the cart`, async () => {
@@ -140,8 +128,10 @@ describe("ShopPage component", () => {
       const shopPage = screen.getByRole("main");
       await user.click(cartBtn);
       expect(screen.getByRole("heading", { name: "Cart" })).toBeInTheDocument();
-      await user.click(shopPage)
-      expect(screen.queryByRole("heading", { name: "Cart" })).not.toBeInTheDocument();
+      await user.click(shopPage);
+      expect(
+        screen.queryByRole("heading", { name: "Cart" })
+      ).not.toBeInTheDocument();
     });
   });
 });

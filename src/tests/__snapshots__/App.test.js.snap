@@ -26,11 +26,6 @@ exports[`renders the App 1`] = `
           Shop
         </button>
       </a>
-      <button
-        id="cart"
-      >
-        Cart 
-      </button>
     </header>
     <footer>
       <a

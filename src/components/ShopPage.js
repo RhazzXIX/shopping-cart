@@ -105,6 +105,15 @@ const ShopPage = () => {
     setCartItems(cartItems.concat(product))
   }
 
+  const removeFromCart = (e) => {
+    const productId = Number(e.target.dataset.id)
+    setCartItems(
+      cartItems.filter(item => {
+        return item.id !== productId
+      })
+    )
+  }
+
   useEffect(() => {
     getCategories();
     getProducts();
@@ -146,7 +155,7 @@ const ShopPage = () => {
             <img src={cartImg} alt="Cart" />
             {cartItems.length !== 0 && <p>{cartItems.length}</p>}
           </button>
-          {showCart && <Cart products={cartItems} />}
+          {showCart && <Cart products={cartItems} deleteProduct={removeFromCart}/>}
         </header>
         <div className="productContainer">
           {products.map((product) => (

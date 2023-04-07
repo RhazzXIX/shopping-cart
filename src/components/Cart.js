@@ -36,8 +36,8 @@ const Cart = (props) => {
                   $ {product.price}.00 x {product.qty}
                 </p>
                 <p>$ {product.price * product.qty}.00</p>
-                <button onClick={deleteProduct}>
-                  <img src={del} alt="delete" />
+                <button onClick={deleteProduct} data-id={product.id}>
+                  <img src={del} alt="delete" data-id={product.id} />
                 </button>
               </li>
             );
